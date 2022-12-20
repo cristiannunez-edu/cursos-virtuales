@@ -1,3 +1,7 @@
+document.onload = function() {
+    alert(1);
+}
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const courseID = urlParams.get('id');
