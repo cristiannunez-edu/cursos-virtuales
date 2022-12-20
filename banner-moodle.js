@@ -1,6 +1,7 @@
-document.onload = function() {
-    alert(1);
-}
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded");
+    alert("Testing")
+  })
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
