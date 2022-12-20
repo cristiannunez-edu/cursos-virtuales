@@ -1,11 +1,10 @@
 window.addEventListener("load", (event) => {
     console.log("page is fully loaded");
-    alert("Testing")
+    alert("Cargando datos :D")
   })
 
-$(document).on('load', function() {
-    alert("Hello world");
-    console.log('funciona jQuery')
+  $( document ).ready(function() {
+    console.log( "ready!" );
 });
 
 const queryString = window.location.search;
