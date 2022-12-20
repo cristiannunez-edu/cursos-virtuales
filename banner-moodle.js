@@ -3,6 +3,11 @@ window.addEventListener("load", (event) => {
     alert("Testing")
   })
 
+$(document).on('load', function() {
+    alert("Hello world");
+    console.log('funciona jQuery')
+});
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const courseID = urlParams.get('id');
