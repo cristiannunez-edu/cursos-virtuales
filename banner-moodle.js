@@ -177,6 +177,10 @@ var myPrettyCode = function () {
 
 window.addEventListener("load",(e=>{
     console.log("page is fully loaded");
+
+    const ourseTITLE = document.querySelector("#app-container .course-name");
+    console.log(ourseTITLE);
+
     gapi.load("client", start);
 }))
 
