@@ -1,4 +1,4 @@
-const HTMLcode = `<div id="app-container">
+const HTMLcode = `
   <div class="banner-container">
     <div class="banner-images">
       <img class="course-image" src="" alt=".">
@@ -15,7 +15,7 @@ const HTMLcode = `<div id="app-container">
     <h3>¡Sean bienvenidos/as!</h3>
     <p>El curso inicia el <span class="course-date">...</span></p>
   </div>
-</div>`;
+`;
 
 const CSScode = `
 <style>
@@ -92,8 +92,8 @@ const CSScode = `
 </style>
 `;
 
-document.write(HTMLcode);
-document.write(CSScode);
+const appContainer = document.getElementById('app-container');
+appContainer.innerHTML = HTMLcode + CSScode;
 
 const start = () => {
     const queryString = window.location.search;
@@ -136,10 +136,12 @@ const start = () => {
         if (loadedData[i][0] == courseID) {
           console.dir(loadedData[i]);
 
-          courseTITLE.innerHTML = loadedData[i][1];
-          courseCATEGORY.innerHTML = loadedData[i][2];
-          courseIMG.src = loadedData[i][3];
-          courseDATE.innerHTML = loadedData[i][4];
+          console.dir(appContainer);
+
+          appContainer.innerHTML = loadedData[i][1];
+        //   courseCATEGORY.innerHTML = loadedData[i][2];
+        //   courseIMG.src = loadedData[i][3];
+        //   courseDATE.innerHTML = loadedData[i][4];
 
           break;
         }
