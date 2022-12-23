@@ -171,7 +171,12 @@ function loadScript(url, callback) {
 
 var myPrettyCode = function () {
   // Load the JavaScript client library
-  gapi.load("client", start);
+  
 };
+
+window.addEventListener("load",(e=>{
+    console.log("page is fully loaded");
+    gapi.load("client", start);
+}))
 
 loadScript("https://apis.google.com/js/api.js", myPrettyCode);
