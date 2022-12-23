@@ -21,10 +21,8 @@ const CSScode = `
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", sans-serif;
+#app-container > * {
+  font-family: "Inter", sans-serif !important;
 }
 
 .course-welcome {
@@ -97,27 +95,27 @@ const CSScode = `
 document.write(HTMLcode);
 document.write(CSScode);
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const courseID = urlParams.get("id");
-
-const courseIMG = document.querySelector("#app-container .course-image");
-const courseTITLE = document.querySelector("#app-container .course-name");
-const courseCATEGORY = document.querySelector(
-  "#app-container .course-category"
-);
-const courseDATE = document.querySelector("#app-container .course-date");
-
-const fragment1 = "AIzaSyDaF0";
-const fragment2 = "aegTRahNHasCpxBfMJCoarnOJ0r8";
-const SPREADSHEET_ID = "1ltHrfd-u2Ur35cxEHgfnVOsmel8z-6goofv2n9TW5WI";
-const PROTOCOL = "https://";
-const URL_GOOGLEAPIS =
-  PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
-const SHEET_NAME = "Listado";
-const DATA_RANGE = "A2:I6";
-
 const start = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const courseID = urlParams.get("id");
+    
+    const courseIMG = document.querySelector("body #app-container .course-image");
+    const courseTITLE = document.querySelector("body #app-container .course-name");
+    const courseCATEGORY = document.querySelector(
+      "#app-container .course-category"
+    );
+    const courseDATE = document.querySelector("#app-container .course-date");
+    
+    const fragment1 = "AIzaSyDaF0";
+    const fragment2 = "aegTRahNHasCpxBfMJCoarnOJ0r8";
+    const SPREADSHEET_ID = "1ltHrfd-u2Ur35cxEHgfnVOsmel8z-6goofv2n9TW5WI";
+    const PROTOCOL = "https://";
+    const URL_GOOGLEAPIS =
+      PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
+    const SHEET_NAME = "Listado";
+    const DATA_RANGE = "A2:I6";
+
   // Initialize the JavaScript client library
   gapi.client
     .init({
