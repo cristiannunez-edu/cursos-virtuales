@@ -92,29 +92,31 @@ const CSScode = `
 </style>
 `;
 
-const appContainer = document.getElementById('app-container');
+const appContainer = document.getElementById("app-container");
 appContainer.innerHTML = HTMLcode + CSScode;
 
 const start = () => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const courseID = urlParams.get("id");
-    
-    const courseIMG = document.querySelector("body #app-container .course-image");
-    const courseTITLE = document.querySelector("body #app-container .course-name");
-    const courseCATEGORY = document.querySelector(
-      "#app-container .course-category"
-    );
-    const courseDATE = document.querySelector("#app-container .course-date");
-    
-    const fragment1 = "AIzaSyDaF0";
-    const fragment2 = "aegTRahNHasCpxBfMJCoarnOJ0r8";
-    const SPREADSHEET_ID = "1ltHrfd-u2Ur35cxEHgfnVOsmel8z-6goofv2n9TW5WI";
-    const PROTOCOL = "https://";
-    const URL_GOOGLEAPIS =
-      PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
-    const SHEET_NAME = "Listado";
-    const DATA_RANGE = "A2:I6";
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const courseID = urlParams.get("id");
+
+  const courseIMG = document.querySelector("body #app-container .course-image");
+  const courseTITLE = document.querySelector(
+    "body #app-container .course-name"
+  );
+  const courseCATEGORY = document.querySelector(
+    "#app-container .course-category"
+  );
+  const courseDATE = document.querySelector("#app-container .course-date");
+
+  const fragment1 = "AIzaSyDaF0";
+  const fragment2 = "aegTRahNHasCpxBfMJCoarnOJ0r8";
+  const SPREADSHEET_ID = "1ltHrfd-u2Ur35cxEHgfnVOsmel8z-6goofv2n9TW5WI";
+  const PROTOCOL = "https://";
+  const URL_GOOGLEAPIS =
+    PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
+  const SHEET_NAME = "Listado";
+  const DATA_RANGE = "A2:I6";
 
   // Initialize the JavaScript client library
   gapi.client
@@ -134,14 +136,10 @@ const start = () => {
 
       for (let i = 1; i < loadedData.length; i++) {
         if (loadedData[i][0] == courseID) {
-          console.dir(loadedData[i]);
-
-          console.dir(appContainer);
-
-          appContainer.innerHTML = loadedData[i][1];
-        //   courseCATEGORY.innerHTML = loadedData[i][2];
-        //   courseIMG.src = loadedData[i][3];
-        //   courseDATE.innerHTML = loadedData[i][4];
+          courseTITLE.innerHTML = loadedData[i][1];
+          courseCATEGORY.innerHTML = loadedData[i][2];
+          courseIMG.src = loadedData[i][3];
+          courseDATE.innerHTML = loadedData[i][4];
 
           break;
         }
@@ -152,36 +150,8 @@ const start = () => {
     });
 };
 
-function loadScript(url, callback) {
-  // Adding the script tag to the head as suggested before
-  var head = document.head;
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = url;
+window.addEventListener("load", (e) => {
+  console.log("page is fully loaded");
 
-  // Then bind the event to the callback function.
-  // There are several events for cross browser compatibility.
-  script.onreadystatechange = callback;
-  script.onload = callback;
-
-  // Fire the loading
-  head.appendChild(script);
-  
-  document.write('<script src="https://apis.google.com/js/api.js"></script>')
-}
-
-var myPrettyCode = function () {
-  // Load the JavaScript client library
-  
-};
-
-window.addEventListener("load",(e=>{
-    console.log("page is fully loaded");
-
-    const ourseTITLE = document.querySelector("#app-container .course-name");
-    console.log(ourseTITLE);
-
-    gapi.load("client", start);
-}))
-
-loadScript("https://apis.google.com/js/api.js", myPrettyCode);
+  gapi.load("client", start);
+});
