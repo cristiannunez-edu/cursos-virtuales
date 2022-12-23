@@ -94,6 +94,9 @@ const CSScode = `
 </style>
 `;
 
+document.write(HTMLcode);
+document.write(CSScode);
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const courseID = urlParams.get("id");
@@ -164,8 +167,6 @@ function loadScript(url, callback) {
   // Fire the loading
   head.appendChild(script);
   
-  document.write(HTMLcode);
-  document.write(CSScode);
   document.write('<script src="https://apis.google.com/js/api.js"></script>')
 }
 
