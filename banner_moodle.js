@@ -78,6 +78,9 @@ const CSScode = `
   color: white;
   text-transform: uppercase;
   font-size: 2.5rem;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
 }
 
 .course-welcome {
@@ -90,7 +93,7 @@ const CSScode = `
   font-size: 1.2rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .banner-container {
     grid-template-columns: 1fr;
   }
@@ -103,6 +106,7 @@ const CSScode = `
     font-size: 2rem;
   }
 }
+
 
 </style>
 `;
