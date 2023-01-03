@@ -1,7 +1,7 @@
 const HTMLcode = `
   <div class="banner-container">
     <div class="banner-images">
-      <img class="course-image" src="" alt=".">
+      <img class="course-image" src="" alt=" ">
       <div class="logo-infotep-virtual">
         <img src="https://lh6.googleusercontent.com/EQTIUNdUixyIt7D8VffJ8UVt1iiuYgkLVobj390xmt89HoOSbwhMSfFVy0M9gHP__iA=w2400" alt="infotep virtual logo">
       </div>
@@ -25,20 +25,13 @@ const CSScode = `
   font-family: "Inter", sans-serif !important;
 }
 
-.course-welcome {
-  text-align: center;
-  padding: 1rem;
-}
-
-.course-welcome p {
-  margin-top: 0.5rem;
-}
-
 .banner-container {
   display: grid;
   grid-template-columns: 0.6fr 1fr;
   height: 300px;
   background: #043474;
+  overflow: hidden;
+  user-select: none;
 }
 
 .banner-images {
@@ -59,17 +52,17 @@ const CSScode = `
 .banner-images .logo-infotep-virtual {
   position: absolute;
   z-indez: 999999;
-  width: 90px;
+  width: 80px;
   background: white;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
-  bottom: 0;
-  margin: 1rem;
+  bottom: 1rem;
+  left: 0.75rem;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
 }
 
 .banner-content {
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -83,12 +76,34 @@ const CSScode = `
 .course-name {
   font-weight: bold;
   color: white;
+  text-transform: uppercase;
   font-size: 2.5rem;
-  padding-right: 3rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
+
+.course-welcome {
+  text-align: center;
+  padding: 1rem;
+}
+
+.course-welcome p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .banner-container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-images {
+    display: none;
+  }
+
+  .course-name {
+    font-size: 2rem;
+  }
+}
+
 </style>
 `;
 
