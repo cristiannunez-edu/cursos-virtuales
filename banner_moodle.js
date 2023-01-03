@@ -62,7 +62,7 @@ const CSScode = `
 }
 
 .banner-content {
-  padding: 0.5rem 1.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -80,7 +80,7 @@ const CSScode = `
   font-size: 2.5rem;
   flex-grow: 2;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .course-welcome {
@@ -106,8 +106,6 @@ const CSScode = `
     font-size: 2rem;
   }
 }
-
-
 </style>
 `;
 
