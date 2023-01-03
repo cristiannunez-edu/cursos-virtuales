@@ -13,7 +13,7 @@ const HTMLcode = `
   </div>
   <div class="course-welcome">
     <h3>¡Sean bienvenidos/as!</h3>
-    <p>El curso inicia el <span class="course-date">...</span></p>
+    <p>El curso inicia el <b class="course-date"></b></p>
   </div>
 `;
 
@@ -100,13 +100,9 @@ const start = () => {
   const urlParams = new URLSearchParams(queryString);
   const courseID = urlParams.get("id");
 
-  const courseIMG = document.querySelector("body #app-container .course-image");
-  const courseTITLE = document.querySelector(
-    "body #app-container .course-name"
-  );
-  const courseCATEGORY = document.querySelector(
-    "#app-container .course-category"
-  );
+  const courseIMG = document.querySelector("#app-container .course-image");
+  const courseTITLE = document.querySelector("#app-container .course-name");
+  const courseCATEGORY = document.querySelector("#app-container .course-category");
   const courseDATE = document.querySelector("#app-container .course-date");
 
   const fragment1 = "AIzaSyDaF0";
@@ -116,7 +112,7 @@ const start = () => {
   const URL_GOOGLEAPIS =
     PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
   const SHEET_NAME = "Listado";
-  const DATA_RANGE = "A2:I6";
+  const DATA_RANGE = "A2:I1000";
 
   // Initialize the JavaScript client library
   gapi.client
@@ -151,7 +147,7 @@ const start = () => {
 };
 
 window.addEventListener("load", (e) => {
-  console.log("page is fully loaded");
+  // console.log("page is fully loaded");
 
   gapi.load("client", start);
 });
