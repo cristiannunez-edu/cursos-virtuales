@@ -1,23 +1,26 @@
-const HTMLcode = `
-  <div class="banner-container">
-    <div class="banner-images">
-      <img class="course-image" src="" alt=" ">
-      <div class="logo-infotep-virtual">
-        <img src="https://lh6.googleusercontent.com/EQTIUNdUixyIt7D8VffJ8UVt1iiuYgkLVobj390xmt89HoOSbwhMSfFVy0M9gHP__iA=w2400" alt="infotep virtual logo">
-      </div>
-    </div>
-    <div class="banner-content">
-      <p class="course-category"></p>
-      <p class="course-name"></p>
-    </div>
-  </div>
-  <div class="course-welcome">
-    <h3>¡Sean bienvenidos/as!</h3>
-    <p>El curso inicia el <b class="course-date"></b></p>
-  </div>
-`;
+(() => {
 
-const CSScode = `
+const appContainer = document.getElementById("app-container");
+appContainer.innerHTML = `
+<div class="banner-container">
+  <div class="banner-images">
+    <img class="course-image" src="" alt=" ">
+    <div class="logo-infotep-virtual">
+      <img src="https://lh6.googleusercontent.com/EQTIUNdUixyIt7D8VffJ8UVt1iiuYgkLVobj390xmt89HoOSbwhMSfFVy0M9gHP__iA=w2400" alt="infotep virtual logo">
+    </div>
+  </div>
+  <div class="banner-content">
+    <p class="course-category"></p>
+    <p class="course-name"></p>
+  </div>
+</div>
+<div class="course-welcome">
+  <h3>¡Sean bienvenidos/as!</h3>
+  <p>El curso inicia el <b class="course-date"></b></p>
+</div>
+` 
++ 
+`
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
@@ -105,9 +108,6 @@ const CSScode = `
 </style>
 `;
 
-const appContainer = document.getElementById("app-container");
-appContainer.innerHTML = HTMLcode + CSScode;
-
 const getCourseIdFromUrl = () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -181,6 +181,8 @@ const start = () => {
     });
 };
 
-window.addEventListener("load", (e) => {
+window.addEventListener("DOMContentLoaded", (e) => {
   loadData();
 });
+
+})();
