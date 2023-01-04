@@ -118,7 +118,7 @@ const getCourseIdFromUrl = () => {
 const courseID = getCourseIdFromUrl();
 
 const loadData = () => {
-  const storedData = localStorage.getItem("c" + courseID);
+  const storedData = sessionStorage.getItem("c" + courseID);
 
   if (storedData) {
     parseData(JSON.parse(storedData));
@@ -170,8 +170,8 @@ const start = () => {
       for (let i = 1; i < loadedData.length; i++) {
         if (loadedData[i][0] == courseID) {
           parseData(loadedData[i]);
-          // Save founded data on local storage
-          localStorage.setItem("c" + courseID, JSON.stringify(loadedData[i]));
+          // Save founded data on session storage
+          sessionStorage.setItem("c" + courseID, JSON.stringify(loadedData[i]));
           break;
         }
       }
