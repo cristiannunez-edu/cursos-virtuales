@@ -36,7 +36,6 @@ const CSScode = `
 
 .banner-images {
   position: relative;
-  backgroun: white;
   height: 100%;
 }
 
@@ -71,13 +70,14 @@ const CSScode = `
   text-align: right;
   color: #6e8eb4;
   font-weight: bold;
+  font-size: clamp(0.5rem, 1vw + 1rem, 1rem);
 }
 
 .course-name {
   font-weight: bold;
   color: white;
   text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: clamp(1.375rem, 2vw + 1rem, 2.25rem);
   flex-grow: 2;
   display: flex;
   align-items: center;
@@ -101,10 +101,6 @@ const CSScode = `
   .banner-images {
     display: none;
   }
-
-  .course-name {
-    font-size: 2rem;
-  }
 }
 </style>
 `;
@@ -112,16 +108,40 @@ const CSScode = `
 const appContainer = document.getElementById("app-container");
 appContainer.innerHTML = HTMLcode + CSScode;
 
-const start = () => {
+const getCourseIdFromUrl = () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const courseID = urlParams.get("id");
 
+  return urlParams.get("id") || 3060;
+};
+
+const courseID = getCourseIdFromUrl();
+
+const loadData = () => {
+  const storedData = localStorage.getItem("c" + courseID);
+
+  if (storedData) {
+    parseData(JSON.parse(storedData));
+    console.log("loading data from storage");
+  } else {
+    // Fetch data from API
+    gapi.load("client", start);
+  }
+};
+
+const parseData = (data) => {
   const courseIMG = document.querySelector("#app-container .course-image");
   const courseTITLE = document.querySelector("#app-container .course-name");
   const courseCATEGORY = document.querySelector("#app-container .course-category");
   const courseDATE = document.querySelector("#app-container .course-date");
 
+  courseTITLE.innerHTML = data[1];
+  courseCATEGORY.innerHTML = data[2];
+  courseIMG.src = data[3];
+  courseDATE.innerHTML = data[4];
+};
+
+const start = () => {
   const fragment1 = "AIzaSyDaF0";
   const fragment2 = "aegTRahNHasCpxBfMJCoarnOJ0r8";
   const SPREADSHEET_ID = "1ltHrfd-u2Ur35cxEHgfnVOsmel8z-6goofv2n9TW5WI";
@@ -149,11 +169,9 @@ const start = () => {
 
       for (let i = 1; i < loadedData.length; i++) {
         if (loadedData[i][0] == courseID) {
-          courseTITLE.innerHTML = loadedData[i][1];
-          courseCATEGORY.innerHTML = loadedData[i][2];
-          courseIMG.src = loadedData[i][3];
-          courseDATE.innerHTML = loadedData[i][4];
-
+          parseData(loadedData[i]);
+          // Save founded data on local storage
+          localStorage.setItem("c" + courseID, JSON.stringify(loadedData[i]));
           break;
         }
       }
@@ -164,7 +182,5 @@ const start = () => {
 };
 
 window.addEventListener("load", (e) => {
-  // console.log("page is fully loaded");
-
-  gapi.load("client", start);
+  loadData();
 });
