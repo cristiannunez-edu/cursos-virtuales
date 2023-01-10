@@ -1,6 +1,6 @@
 (() => {
-
-    const regionMain = document.getElementById("region-main");
+    const parentElementID = "region-main";
+    const regionMain = document.getElementById(parentElementID);
     regionMain.insertAdjacentHTML("afterbegin", `
     <div class="banner-container">
       <div class="banner-images">
@@ -155,10 +155,10 @@
     };
     
     const parseData = (data) => {
-      const courseIMG = document.querySelector("#app-container .course-image");
-      const courseTITLE = document.querySelector("#app-container .course-name");
-      const courseCATEGORY = document.querySelector("#app-container .course-category");
-      const courseDATE = document.querySelector("#app-container .course-date");
+      const courseIMG = document.querySelector(`#${parentElementID} .course-image`);
+      const courseTITLE = document.querySelector(`#${parentElementID} .course-name`);
+      const courseCATEGORY = document.querySelector(`#${parentElementID} .course-category`);
+      const courseDATE = document.querySelector(`#${parentElementID} .course-date`);
     
       courseTITLE.innerHTML = data[1];
       courseCATEGORY.innerHTML = data[2];
