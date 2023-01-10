@@ -27,6 +27,10 @@
     #app-container > * {
       font-family: "Inter", sans-serif !important;
     }
+
+    :root {
+        --main-bg-color: #043474;
+    }
     
     .banner-container {
       display: grid;
@@ -49,6 +53,27 @@
     
     .banner-images .course-image {
       height: 300px;
+    }
+
+    .banner-images img {
+        position: relative;
+    }
+      
+    /* style this to fit your needs */
+    /* and remove [alt] to apply to all images*/
+    .banner-images img[alt]:after {  
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-bg-color);
+        font-family: 'Helvetica';
+        font-weight: 300;
+        line-height: 2;  
+        text-align: center;
+        content: attr(alt);
     }
     
     .banner-images .logo-infotep-virtual {
