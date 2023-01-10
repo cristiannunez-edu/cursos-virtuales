@@ -1,6 +1,6 @@
 (() => {
-    const parentElementID = "region-main";
-    const regionMain = document.getElementById(parentElementID);
+    const parentElement = "#region-main .course-content";
+    const regionMain = document.getElementByd(parentElement);
     regionMain.insertAdjacentHTML("afterbegin", `
     <div class="banner-container">
       <div class="banner-images">
@@ -137,7 +137,7 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
     
-      return urlParams.get("id") || 3060;
+      return urlParams.get("id") || 0;
     };
     
     const courseID = getCourseIdFromUrl();
@@ -147,7 +147,7 @@
     
       if (storedData) {
         parseData(JSON.parse(storedData));
-        console.log("loading data from storage");
+        console.log("from storage");
       } else {
         // Fetch data from API
         gapi.load("client", start);
@@ -155,10 +155,10 @@
     };
     
     const parseData = (data) => {
-      const courseIMG = document.querySelector(`#${parentElementID} .course-image`);
-      const courseTITLE = document.querySelector(`#${parentElementID} .course-name`);
-      const courseCATEGORY = document.querySelector(`#${parentElementID} .course-category`);
-      const courseDATE = document.querySelector(`#${parentElementID} .course-date`);
+      const courseIMG = document.querySelector(`${parentElement} .course-image`);
+      const courseTITLE = document.querySelector(`${parentElement} .course-name`);
+      const courseCATEGORY = document.querySelector(`${parentElement} .course-category`);
+      const courseDATE = document.querySelector(`${parentElement} .course-date`);
     
       courseTITLE.innerHTML = data[1];
       courseCATEGORY.innerHTML = data[2];
@@ -202,7 +202,7 @@
           }
         })
         .catch((err) => {
-          console.log("Ha ocurrido un error: " + err.message);
+          console.info("Ha ocurrido un error: " + err.message);
         });
     };
     
@@ -210,5 +210,4 @@
       loadData();
     });
     
-    })();
-    
+})();
