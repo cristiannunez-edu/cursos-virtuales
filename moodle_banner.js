@@ -1,6 +1,6 @@
 (() => {
     const parentElement = "#region-main .course-content";
-    const regionMain = document.getElementByd(parentElement);
+    const regionMain = document.querySelector(parentElement);
     regionMain.insertAdjacentHTML("afterbegin", `
     <div class="banner-container">
       <div class="banner-images">
