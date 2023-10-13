@@ -173,7 +173,7 @@
     const courseDATE = document.querySelector(`${parentElement} .course-date`);
 
     courseTITLE.innerHTML = data[1];
-    courseCATEGORY.innerHTML = data[2];
+    courseCATEGORY.innerHTML = data[5]; // Shortname
     courseIMG.src = data[3];
     courseDATE.innerHTML = data[4];
   };
