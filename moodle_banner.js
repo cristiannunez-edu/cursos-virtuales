@@ -185,7 +185,7 @@
     const PROTOCOL = "https://";
     const URL_GOOGLEAPIS =
       PROTOCOL + "sheets.googleapis.com/$discovery/rest?version=v4";
-    const SHEET_NAME = "Listado";
+    const SHEET_NAME = (courseID > "11500") ? "2024" : "Listado"; // Last moodle id from 2023
     const DATA_RANGE = "A2:I1000";
 
     // Initialize the JavaScript client library
