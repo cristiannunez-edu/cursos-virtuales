@@ -18,7 +18,7 @@
         </div>
         <div class="course-welcome">
           <h3>¡Sean bienvenidos/as!</h3>
-          <p>El curso inicia el <b class="course-date"></b></p>
+          <p>El curso inicia el <b class="course-date"></b> y termina el <b class="course-date-end"></b></p>
         </div>
         <div style="width: 100%;">
           <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe title="Orientaciones Generales - INFOTEP" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genial.ly/637319db776f50001a1d1c82" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div>
@@ -171,11 +171,13 @@
     const courseTITLE = document.querySelector(`${parentElement} .course-name`);
     const courseCATEGORY = document.querySelector(`${parentElement} .course-category`);
     const courseDATE = document.querySelector(`${parentElement} .course-date`);
+    const courseDATEEND = document.querySelector(`${parentElement} .course-date-end`);
 
     courseTITLE.innerHTML = data[1];
     courseCATEGORY.innerHTML = data[5]; // Shortname
     courseIMG.src = data[3];
     courseDATE.innerHTML = data[4];
+    courseDATEEND.innerHTML = data[6];
   };
 
   const start = () => {
