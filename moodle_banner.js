@@ -210,7 +210,7 @@
           if (loadedData[i][0] == courseID) {
             parseData(loadedData[i]);
             // Save founded data on session storage
-            // sessionStorage.setItem("c" + courseID, JSON.stringify(loadedData[i]));
+            sessionStorage.setItem("c" + courseID, JSON.stringify(loadedData[i]));
             break;
           }
         }
