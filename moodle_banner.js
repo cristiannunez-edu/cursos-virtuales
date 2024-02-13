@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="course-welcome">
-          <h3>¡Sean bienvenidos/as!</h3>
+          <h3>¡Te damos la bienvenida!</h3>
           <p>El curso inicia el <b class="course-date"></b> y termina el <b class="course-date-end"></b></p>
         </div>
         <div style="width: 100%;">
