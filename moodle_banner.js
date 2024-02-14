@@ -135,6 +135,10 @@
             display: none;
           }
         }
+        /*Hide editar*/
+        a#action-menu-toggle-14 {
+          display: none!important;
+        }
         </style>
         `);
   }
