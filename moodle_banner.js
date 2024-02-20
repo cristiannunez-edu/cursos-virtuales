@@ -136,7 +136,7 @@
           }
         }
         /*Hide editar*/
-        a#action-menu-toggle-14 {
+        #section-0 .section_action_menu {
           display: none!important;
         }
         </style>
