@@ -136,7 +136,8 @@
           }
         }
         /*Hide editar*/
-        #section-0 .section_action_menu {
+        #section-0 .section_action_menu, 
+        #section a[href*="editsection"] {
           display: none!important;
         }
         </style>
