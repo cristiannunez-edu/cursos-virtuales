@@ -64,6 +64,7 @@
 
 .banner-wrapper:has(.banner-image.hidden) {
   grid-gap: 0;
+  justify-content: center;
 }
 
 .banner-container:has(.banner-image.hidden) {
